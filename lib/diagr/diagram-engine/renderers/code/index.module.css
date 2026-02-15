@@ -1,0 +1,32 @@
+.code {
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  font-size: 14px;
+  line-height: 1.45;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: var(--diagr-renderer-text, var(--diagr-text-primary, #2f3742));
+  background: transparent;
+  border: none;
+  overflow: visible;
+  overflow-wrap: anywhere;
+}
+
+.codeFallback {
+  white-space: pre-wrap;
+}
+
+.codeShiki {
+  border-radius: 12px;
+}
+
+.codeShiki :global(.shiki) {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  white-space: pre-wrap !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace !important;
+  font-size: 14px !important;
+  line-height: 1.45 !important;
+}

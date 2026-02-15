@@ -1,0 +1,69 @@
+title: "API request lifecycle"
+filename: "api-request-lifecycle"
+theme: "dark"
+
+edges: |
+  client --> gateway [label="ingest", color="deepskyblue", type=dash]
+  gateway --> service [label="forward", color="goldenrod"]
+  service --> db [label="read/write", color="mediumseagreen", type=solid]
+  service --> cache [label="warm", color="tomato", type=dot]
+  cache --> service [label="hit", color="plum", type=dash]
+
+layout:
+  direction: LR
+  xGap: 110
+  yGap: 80
+
+nodes:
+  - id: "client"
+    label: "Client apps"
+    renderer: "cards"
+    data:
+      cards:
+        - label: "Web"
+          tone: "royalblue"
+          icon: "browser"
+          icons: 6
+        - label: "Mobile"
+          tone: "mediumseagreen"
+          icon: "device-mobile"
+          icons: 6
+
+  - id: "gateway"
+    label: "API gateway"
+    renderer: "cards"
+    data:
+      cards:
+        - label: "Rate limit"
+          tone: "goldenrod"
+          icon: "shield-check"
+          icons: 4
+
+  - id: "service"
+    label: "Core service"
+    renderer: "code"
+    data:
+      code: |
+        interface RequestContext {
+          request_id: string;
+          actor_id?: string;
+          tenant_id: string;
+          trace_id: string;
+        }
+
+  - id: "db"
+    label: "Postgres"
+    renderer: "image"
+    data:
+      image: "https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg"
+      height: 80
+
+  - id: "cache"
+    label: "Redis cache"
+    renderer: "cards"
+    data:
+      cards:
+        - label: "Hot keys"
+          tone: "tomato"
+          icon: "lightning"
+          icons: 9

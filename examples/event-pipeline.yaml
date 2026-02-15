@@ -1,0 +1,68 @@
+title: "Event processing pipeline"
+filename: "event-processing-pipeline"
+theme: "light"
+
+edges: |
+  ingest --> queue [label="publish"]
+  queue --> workers [label="consume"]
+  workers --> warehouse [label="load"]
+  workers <--> alerts [label="notify"]
+
+layout:
+  direction: TB
+  xGap: 120
+  yGap: 80
+
+nodes:
+  - id: "ingest"
+    label: "Event ingest"
+    renderer: "cards"
+    data:
+      cards:
+        - label: "API"
+          tone: "dodgerblue"
+          icon: "cloud-arrow-up"
+          icons: 4
+        - label: "SDK"
+          tone: "steelblue"
+          icon: "code"
+          icons: 4
+
+  - id: "queue"
+    label: "Message queue"
+    renderer: "cards"
+    data:
+      cards:
+        - label: "Kafka"
+          tone: "goldenrod"
+          icon: "stack"
+          icons: 8
+
+  - id: "workers"
+    label: "Transform workers"
+    renderer: "code"
+    data:
+      code: |
+        interface Event {
+          id: string;
+          source: string;
+          payload: Record<string, unknown>;
+          created_at: string;
+        }
+
+  - id: "warehouse"
+    label: "Analytics warehouse"
+    renderer: "image"
+    data:
+      image: "https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-png/dark/snowflake-color.png"
+      height: 80
+
+  - id: "alerts"
+    label: "Ops alerts"
+    renderer: "markdown"
+    data:
+      markdown: |
+        ### Alert rules
+        - retry failures > 5%
+        - queue lag > 30s
+        - worker crash loop

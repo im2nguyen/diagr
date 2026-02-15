@@ -1,0 +1,76 @@
+title: "Org capability map"
+filename: "org-capability-map"
+theme: "light"
+
+edges: |
+  product --> platform [label="handoff"]
+  platform --> growth [label="enable"]
+  growth --> product [label="feedback"]
+
+layout:
+  direction: TB
+  xGap: 900
+  yGap: 140
+
+nodes:
+  - id: "product"
+    label: "Product"
+    renderer: "groupCard"
+    data:
+      caption: "Owns roadmap"
+      ids: ["product_cards"]
+
+  - id: "platform"
+    label: "Platform"
+    renderer: "groupCard"
+    data:
+      caption: "Runs shared systems"
+      ids: ["platform_cards", "platform_code"]
+
+  - id: "growth"
+    label: "Growth"
+    renderer: "groupCard"
+    data:
+      caption: "Optimizes funnel"
+      ids: ["growth_cards"]
+
+  - id: "product_cards"
+    label: "Teams"
+    renderer: "cards"
+    data:
+      cards:
+        - label: "PM + Design"
+          tone: "dodgerblue"
+          icon: "users-three"
+          icons: 8
+
+  - id: "platform_cards"
+    label: "Services"
+    renderer: "cards"
+    data:
+      cards:
+        - label: "Infra"
+          tone: "mediumseagreen"
+          icon: "server"
+          icons: 8
+
+  - id: "platform_code"
+    label: "Contract"
+    renderer: "code"
+    data:
+      code: |
+        interface Capability {
+          name: string;
+          owner: string;
+          tier: "core" | "shared" | "experimental";
+        }
+
+  - id: "growth_cards"
+    label: "Programs"
+    renderer: "cards"
+    data:
+      cards:
+        - label: "Lifecycle"
+          tone: "goldenrod"
+          icon: "chart-line-up"
+          icons: 8

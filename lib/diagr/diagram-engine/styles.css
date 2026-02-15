@@ -1,0 +1,254 @@
+.canvas-shell {
+  overflow: hidden;
+  min-height: 620px;
+  background: var(--diagr-canvas-bg, #f6f7fb);
+  font-family: "Plus Jakarta Sans", "Avenir Next", "Segoe UI", sans-serif;
+}
+
+.canvas-shell .react-flow {
+  border: 1px solid var(--diagr-panel-border, #d7dbe6);
+  font-family: inherit;
+}
+
+.canvas-shell .react-flow__node,
+.canvas-shell .react-flow__edge,
+.canvas-shell .react-flow__edge-textwrapper,
+.canvas-shell .react-flow__edge-text {
+  font-family: inherit;
+}
+
+.diagr-diagram-title {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 21px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: var(--diagr-text-primary, #2f3742);
+  letter-spacing: -0.015em;
+  pointer-events: none;
+}
+
+.diagr-node-content {
+  width: max-content;
+  max-width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-rows: auto auto;
+  gap: 8px;
+  align-content: start;
+  padding: 14px;
+}
+
+.diagr-node-title {
+  font-size: 14px;
+  line-height: 1.2;
+  min-height: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--diagr-renderer-text, var(--diagr-text-primary, #24303f));
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.react-flow__node-diagrNode.diagr-node,
+.react-flow__node-groupCard.diagr-node {
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  display: grid;
+}
+
+.react-flow__node-diagrNode.diagr-node-cards,
+.react-flow__node-diagrNode.diagr-node-image {
+  align-items: start;
+  justify-items: center;
+}
+
+.react-flow__node-diagrNode.diagr-node-cards.diagr-in-group-card {
+  align-items: center;
+  justify-items: center;
+}
+
+/* .react-flow__node-diagrNode.diagr-node-cards {
+  min-width: min(var(--diagr-cards-min-width, 220px), 100%);
+} */
+
+.react-flow__node-diagrNode.diagr-node-code,
+.react-flow__node-diagrNode.diagr-node-markdown {
+  align-items: start;
+  justify-items: start;
+}
+
+/* .react-flow__node-diagrNode.diagr-node-markdown {
+  min-width: min(var(--diagr-markdown-min-width, 280px), 100%);
+} */
+
+.diagr-node-label {
+  font-size: 22px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+  text-align: center;
+}
+
+.diagr-node-subtitle {
+  font-size: 12px;
+  color: var(--diagr-renderer-muted, var(--diagr-text-muted, #667085));
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  text-align: center;
+}
+
+.diagr-node-missing {
+  border: 1px dashed var(--diagr-error-border, #d65b5b);
+  background: var(--diagr-error-bg, #fff4f4);
+  color: var(--diagr-error-text, #7b2525);
+  border-radius: 12px;
+  padding: 12px;
+  display: grid;
+  gap: 4px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.diagr-group-node {
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.diagr-group-header {
+  height: 56px;
+  background: var(--diagr-header-bg, #eceef4);
+  border-bottom: 1px solid var(--diagr-panel-border, #dce1ee);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--diagr-text-primary, #2f3742);
+  letter-spacing: -0.015em;
+}
+
+.diagr-group-caption {
+  width: 100%;
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--diagr-renderer-muted, var(--diagr-text-muted, #3f4752));
+  pointer-events: none;
+}
+
+.diagr-handle {
+  width: 1px !important;
+  height: 1px !important;
+  min-width: 1px !important;
+  min-height: 1px !important;
+  opacity: 0 !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+.diagr-handle-left-p1,
+.diagr-handle-right-p1 {
+  top: 20% !important;
+}
+
+.diagr-handle-left-p2,
+.diagr-handle-right-p2 {
+  top: 35% !important;
+}
+
+.diagr-handle-left-p3,
+.diagr-handle-right-p3 {
+  top: 50% !important;
+}
+
+.diagr-handle-left-p4,
+.diagr-handle-right-p4 {
+  top: 65% !important;
+}
+
+.diagr-handle-left-p5,
+.diagr-handle-right-p5 {
+  top: 80% !important;
+}
+
+.diagr-handle-left-p1,
+.diagr-handle-left-p2,
+.diagr-handle-left-p3,
+.diagr-handle-left-p4,
+.diagr-handle-left-p5 {
+  left: -1.15em !important;
+}
+
+.diagr-handle-right-p1,
+.diagr-handle-right-p2,
+.diagr-handle-right-p3,
+.diagr-handle-right-p4,
+.diagr-handle-right-p5 {
+  right: -1.15em !important;
+}
+
+.diagr-handle-top-p1,
+.diagr-handle-top-p2,
+.diagr-handle-top-p3,
+.diagr-handle-top-p4,
+.diagr-handle-top-p5 {
+  top: -1.15em !important;
+}
+
+.diagr-handle-bottom-p1,
+.diagr-handle-bottom-p2,
+.diagr-handle-bottom-p3,
+.diagr-handle-bottom-p4,
+.diagr-handle-bottom-p5 {
+  bottom: -1.15em !important;
+  top: auto !important;
+}
+
+.diagr-handle-top-p1,
+.diagr-handle-bottom-p1 {
+  left: 20% !important;
+}
+
+.diagr-handle-top-p2,
+.diagr-handle-bottom-p2 {
+  left: 35% !important;
+}
+
+.diagr-handle-top-p3,
+.diagr-handle-bottom-p3 {
+  left: 50% !important;
+}
+
+.diagr-handle-top-p4,
+.diagr-handle-bottom-p4 {
+  left: 65% !important;
+}
+
+.diagr-handle-top-p5,
+.diagr-handle-bottom-p5 {
+  left: 80% !important;
+}
+
+@media (max-width: 1080px) {
+  .canvas-shell {
+    min-height: 500px;
+  }
+
+  .diagr-group-header {
+    font-size: 18px;
+  }
+
+  .diagr-group-caption {
+    font-size: 14px;
+  }
+}

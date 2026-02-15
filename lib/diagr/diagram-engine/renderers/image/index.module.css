@@ -1,0 +1,28 @@
+.shell {
+  width: max-content;
+  max-width: 100%;
+  justify-items: center;
+  align-content: center;
+}
+
+.asset {
+  max-width: 100%;
+  object-fit: contain;
+  justify-self: center;
+  align-self: center;
+}
+
+.missing {
+  min-width: 24px;
+  min-height: 24px;
+  border: 1px dashed var(--diagr-image-missing-border, #9db3dd);
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  color: var(--diagr-image-missing-text, #60779f);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: lowercase;
+  letter-spacing: 0.01em;
+  background: var(--diagr-image-missing-bg, #f7faff);
+}

@@ -1,0 +1,90 @@
+title: "AWS serverless ingestion"
+filename: "aws-serverless-ingestion"
+theme: "light"
+
+edges: |
+  clients --> apigw [label="https", color="deepskyblue", type=dash]
+  apigw --> lambda [label="invoke", color="goldenrod"]
+  lambda --> queue [label="enqueue", color="slategray", type=dot]
+  queue --> worker [label="batch", color="mediumseagreen"]
+  worker --> store [label="write", color="tomato", type=solid]
+  worker --> notify [label="alert", color="plum", type=dash]
+
+layout:
+  direction: LR
+  xGap: 130
+  yGap: 90
+
+nodes:
+  - id: "clients"
+    label: "Producers"
+    renderer: "cards"
+    data:
+      cards:
+        - label: "Web"
+          tone: "dodgerblue"
+          icon: "browser"
+          icons: 6
+        - label: "Mobile"
+          tone: "mediumseagreen"
+          icon: "device-mobile"
+          icons: 6
+
+  - id: "apigw"
+    label: "Amazon API Gateway"
+    renderer: "cards"
+    data:
+      cards:
+        - label: "REST API"
+          tone: "steelblue"
+          icon: "cloud"
+          icons: 8
+
+  - id: "lambda"
+    label: "AWS Lambda"
+    renderer: "code"
+    data:
+      code: |
+        interface EventEnvelope {
+          request_id: string;
+          tenant_id: string;
+          payload: Record<string, unknown>;
+          created_at: string;
+        }
+
+  - id: "queue"
+    label: "Amazon SQS"
+    renderer: "cards"
+    data:
+      cards:
+        - label: "Buffer"
+          tone: "goldenrod"
+          icon: "stack"
+          icons: 8
+
+  - id: "worker"
+    label: "ECS worker"
+    renderer: "cards"
+    data:
+      cards:
+        - label: "Processor"
+          tone: "mediumseagreen"
+          icon: "cpu"
+          icons: 8
+
+  - id: "store"
+    label: "DynamoDB"
+    renderer: "image"
+    data:
+      image: "https://upload.wikimedia.org/wikipedia/commons/f/fd/DynamoDB.png"
+      height: 100
+
+  - id: "notify"
+    label: "CloudWatch alarms"
+    renderer: "markdown"
+    data:
+      markdown: |
+        ### Notifications
+        - DLQ depth > threshold
+        - Lambda error rate > 1%
+        - worker timeout spike

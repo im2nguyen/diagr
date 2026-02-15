@@ -1,0 +1,88 @@
+.shell {
+  width: max-content;
+  max-width: 100%;
+  justify-items: center;
+}
+
+.grid {
+  width: max-content;
+  max-width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.card {
+  border-radius: 14px;
+  padding: 8px 10px 7px;
+  display: inline-flex;
+  flex-direction: column;
+  width: max-content;
+  min-width: 0;
+  min-height: 0;
+  max-width: 100%;
+  aspect-ratio: auto;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px;
+  background: var(--card-bg, #ddebf8);
+  color: var(--card-accent, #2d99ff);
+  align-self: start;
+}
+
+.cardCompact {
+  --card-icon-size: 26px;
+}
+
+.cardCompact .icons {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+.cardCompact .label {
+  font-size: 15px;
+  line-height: 1.1;
+}
+
+.cardMedium {
+  --card-icon-size: 22px;
+}
+
+.cardMedium .icons {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  justify-items: center;
+  gap: 8px 10px;
+}
+
+.cardMedium .label {
+  font-size: 18px;
+  line-height: 1.08;
+}
+
+.icons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  align-content: start;
+}
+
+.icon {
+  width: var(--card-icon-size, 19px);
+  height: var(--card-icon-size, 19px);
+  opacity: 0.85;
+  display: grid;
+  place-items: center;
+}
+
+.label {
+  text-align: center;
+  font-size: 15px;
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
