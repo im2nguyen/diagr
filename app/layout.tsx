@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import '../lib/diagr/diagram-engine/styles.css';
+import { Analytics } from '@vercel/analytics/next';
 
 export const metadata: Metadata = {
   title: 'diagr | sharp diagrams from code',
@@ -20,6 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <head />
       <body>{children}</body>
+      <Analytics />
     </html>
   );
 }
